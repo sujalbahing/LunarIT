@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunar I.T. Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        /* Custom CSS for additional styling */
+        .navbar-custom {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 80px;
+        }
+        .navbar-custom .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: #4A5568;
+            padding-left: 20px;
+        }
+        .navbar-custom .navbar-brand img {
+            margin-right: 10px;
+        }
+        .navbar-custom .nav-link {
+            color: #4A5568;
+        }
+        .navbar-custom .nav-link:hover {
+            color: #1A202C;
+        }
+        .navbar-custom .btn-primary {
+            background-color: #1A202C;
+            border-color: #1A202C;
+        }
+        .navbar-custom .btn-primary:hover {
+            background-color: #2D3748;
+            border-color: #2D3748;
+        }
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh; /* Adjust height as needed */
+            max-width: 1200px; /* Set maximum width for the container */
+            margin: 0 auto; /* Center the container */
+            background-color: rgba(30, 58, 138, 0.8); /* Optional: add transparency */
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            border-radius: 10px; /* Optional: add rounded corners */
+            padding: 20px; /* Optional: add padding inside the section */
+        }
+        .hero-text {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            color: white;
+        }
+        .fade-in {
+            animation: fadeIn 2.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .main-background {
+            background: url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center center/cover no-repeat;
+            padding: 20px;
+        }
+        .contact-section {
+            padding: 60px 0;
+        }
+        .contact-form {
+            border: 1px solid #eaeaea;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: lightblue;
+        }
+        .contact-info {
+            border: 1px solid #eaeaea;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: lightblue;
+        }
+        .map-container {
+            height: 400px;
+            width: 100%;
+            margin: 30px 0;
+        }
+        .contact-info i {
+            font-size: 24px;
+            color: #1a202c;
+        }
+        .contact-info h5 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .contact-info p {
+            margin: 0;
+            color: #6c757d;
+        }
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .section-heading::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4px;
+            background: #007bff;
+            border-radius: 2px;
+        }
+        .section-heading p {
+            color: #6c757d;
+        }
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            color: #007bff;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand img {
+            height: 2rem;
+            margin-right: 10px;
+        }
+        .navbar-brand span {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+        .footer-logo img {
+            height: 2rem;
+            margin-right: 10px;
+        }
+        .footer-logo span {
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+        footer {
+            font-family: 'Roboto', sans-serif;
+        }
+        footer .footer-logo img {
+            width: 50px;
+        }
+        footer .text-uppercase {
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            color: #f8f9fa;
+        }
+        footer .list-unstyled {
+            padding-left: 0;
+        }
+        footer .list-unstyled a:hover {
+            color: #00bfff;
+            text-decoration: underline;
+        }
+        footer p, footer ul {
+            margin: 0;
+        }
+        footer .text-muted {
+            color: #6c757d !important;
+        }
+        footer .bi {
+            vertical-align: -.125em;
+            margin-right: 0.5em;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="https://lunarit.com.np/img/logo.ico" class="h-8" alt="Lunar IT Solutions Logo" />
+                    Lunar I.T. Solutions
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url "home" %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "about" %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "product" %}">Products</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">UI/UX Design</a></li>
+                                <li><a class="dropdown-item" href="#">Web Development</a></li>
+                                <li><a class="dropdown-item" href="#">Mobile Development</a></li>
+                                <li><a class="dropdown-item" href="#">Web Hosting</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "contact" %}">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                <li><a class="dropdown-item" href="#">Login</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary ms-lg-3">Enroll Now</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+    
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Logo and Company Description -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="footer-logo d-flex align-items-center mb-2">
+                        <img src="https://lunarit.com.np/img/logo.ico" alt="Lunar IT Solutions Logo" style="width: 50px;" class="me-2" />
+                        <span class="h5 mb-0">Lunar I.T. Solutions</span>
+                    </div>
+                    <p class="text-muted">Driving innovation and excellence in tech solutions for over a decade. We strive for customer satisfaction and groundbreaking developments in the IT industry.</p>
+                </div>
+                
+                <!-- Our Services -->
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-3">Our Services</h5>
+                    <ul class="list-unstyled text-start ps-5">
+                        <li><a href="#" class="text-white text-decoration-none">- Hosting Service</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">- Cloud Databases</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">- Web Development</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">- File Storage</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">- Mobile Development</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">- Highly Secure</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Us -->
+                <div class="col-md-4 text-center text-md-end">
+                    <h5 class="text-uppercase mb-3">Contact Us</h5>
+                    <ul class="list-unstyled text-start ps-5">
+                        <p class="mb-1"><i class="bi bi-geo-alt-fill me-2"></i>123 Tech Lane, Suite 100, Innovative City, IC 12345</p>
+                        <p class="mb-1"><i class="bi bi-telephone-fill me-2"></i>(123) 456-7890</p>
+                        <p class="mb-1"><i class="bi bi-envelope-fill me-2"></i>contact@lunaritsolutions.com</p>
+                        <p class="mb-0"><i class="bi bi-clock-fill me-2"></i>Mon - Fri: 9 AM - 6 PM | Sat: 10 AM - 4 PM</p>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="text-center mt-4">
+                <p class="mb-2">&copy; 2024 Lunar I.T. Solutions. All rights reserved.</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
