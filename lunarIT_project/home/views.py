@@ -14,13 +14,3 @@ def product(request):
 
 def contact(request):
     return render(request, 'home/contactpage.html', {})
-
-def authView(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST or None)
-        if form.is_valid():
-            form.save()
-            return redirect("login:login")
-    else:
-        form = UserCreationForm( )
-    return render(request,'registration/signup.html', {'form': form})
