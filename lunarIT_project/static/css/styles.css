@@ -145,47 +145,64 @@
 .navbar-brand span {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
+/* footer2 css */
+
+footer {
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
 .footer-logo {
     display: flex;
     align-items: center;
 }
+
 .footer-logo img {
-    height: 2rem;
-    margin-right: 10px;
-}
-.footer-logo span {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    color: #fff;
-    text-transform: uppercase;
-}
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-footer {
-    font-family: 'Roboto', sans-serif;
-}
-footer .footer-logo img {
     width: 50px;
+    margin-right: 15px;
 }
-footer .text-uppercase {
-    font-size: 1.1rem;
-    letter-spacing: 0.1em;
-    color: #f8f9fa;
+
+.service-link {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: small;
+    text-decoration: none;
+    color: #fff; /* Default text color */
+    transition: color 0.3s, transform 0.3s;
 }
-footer .list-unstyled {
-    padding-left: 0;
+
+.service-link:hover {
+    color: #007bff !important; /* Blue color on hover */
+    transform: translateX(5px); /* Slightly move to the right */
 }
-footer .list-unstyled a:hover {
-    color: #00bfff;
-    text-decoration: underline;
+@media (max-width: 768px) {
+    .col-md-4 {
+        max-width: 100%;
+    }
 }
-footer p, footer ul {
-    margin: 0;
+
+.text-center {
+    text-align: center;
 }
-footer .text-muted {
-    color: #6c757d !important;
-}
-footer .bi {
-    vertical-align: -.125em;
-    margin-right: 0.5em;
+
+.pl-3 {
+    padding-left: 6rem; /* 1rem is equivalent to 16px, you can adjust as needed */
 }
