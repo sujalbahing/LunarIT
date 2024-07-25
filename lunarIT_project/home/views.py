@@ -14,3 +14,6 @@ def product(request):
 
 def contact(request):
     return render(request, 'home/contactpage.html', {})
+
+def service1(request):
+    return render(request, 'home/servicepage1.html', {})
