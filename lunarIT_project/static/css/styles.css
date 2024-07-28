@@ -294,15 +294,6 @@ textarea.form-control {
 
 /* services css */
 
-/* General Styling */
-body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Services Section */
 .services-section {
     background-color: #f8f9fa;
     padding: 4rem 0;
