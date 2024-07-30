@@ -11,8 +11,9 @@ def home(request):
 def about(request):
     return render(request, 'home/aboutpage.html', {})
 
-def product(request):
-    return render(request, 'home/productpage.html', {})
+def course(request):
+    courses = Course.objects.all()
+    return render(request, 'home/coursepage.html', {'courses': courses})
 
 def contact(request):
     
@@ -21,6 +22,3 @@ def contact(request):
 def service1(request):
     return render(request, 'home/servicepage1.html', {})
 
-def test(request):
-    courses = Course.objects.all()
-    return render(request, 'home/test.html', {'courses': courses})

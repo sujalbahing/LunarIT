@@ -1,7 +1,7 @@
 from django.db import models
 
 class Course(models.Model):
-    Name = models.CharField(max_length=100, verbose_name="Name")
+    Name = models.CharField(max_length=200, verbose_name="Name")
     Image = models.ImageField(upload_to='images/', blank=True)
     Price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Price")
     Description = models.TextField(max_length=100, verbose_name="Description")

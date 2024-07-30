@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{% url "home" %}">
                     <img src="https://lunarit.com.np/img/logo.ico" class="h-8" alt="Lunar IT Solutions Logo" />
                     Lunar I.T. Solutions
                 </a>
@@ -28,11 +28,11 @@
                             <a class="nav-link" href="{% url "about" %}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url "product" %}">Products</a>
+                            <a class="nav-link" href="{% url "course" %}">Courses</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Courses
+                                Services
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{% url "service1" %}">UI/UX Design</a></li>
@@ -41,21 +41,21 @@
                                 <li><a class="dropdown-item" href="#">Web Hosting</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Product
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#"></a></li>
+                                <li><a class="dropdown-item" href="#"></a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url "contact" %}">Contact</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                More
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">FAQ</a></li>
-                                <li><a class="dropdown-item" href="#">Login</a></li>
-                            </ul>
-                        </li>
                     </ul>
                     {% comment %} <a href="#" class="btn btn-primary ms-lg-3">Enroll Now</a> {% endcomment %}
-                    <a href="{% url "test" %}" class="btn btn-secondary ms-lg-3">Enroll Now</a>
+                    <a href="#" class="btn btn-secondary ms-lg-3">Log In</a>
                 </div>
             </div>
         </nav>
