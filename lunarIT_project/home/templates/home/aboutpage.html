@@ -26,37 +26,20 @@
     <section class="text-center mb-5">
         <h2 class="h3 mb-4">Meet Our Team</h2>
         <div class="row">
+            {% for about in abouts %}
             <div class="col-md-4 mb-4 d-flex">
                 <div class="card border-0 shadow-sm flex-fill">
-                    <img src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" class="card-img-top" alt="Team Member 1">
+                    {% if about.Image %}
+                    <img src="{{ about.Image.url }}" class="card-img-top" alt="{{ about.Name }}">
+                    {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">Jane Doe</h5>
-                        <p class="card-text text-muted">CEO & Founder</p>
-                        <p class="text-muted">Jane is the visionary behind Lunar I.T. Solutions, driving the company's strategic direction and growth. With over 15 years of experience in the tech industry, she is passionate about innovation and customer satisfaction.</p>
+                        <h5 class="card-title">{{ about.Name }}</h5>
+                        <p class="card-text text-muted">{{ about.Title}}</p>
+                        <p class="text-muted">{{ about.Description }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4 d-flex">
-                <div class="card border-0 shadow-sm flex-fill">
-                    <img src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" class="card-img-top" alt="Team Member 2">
-                    <div class="card-body">
-                        <h5 class="card-title">John Smith</h5>
-                        <p class="card-text text-muted">Lead Developer</p>
-                        <p class="text-muted">John leads our development team, ensuring that our solutions are built to the highest standards. His expertise in software engineering and problem-solving makes him a key player in our projects.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 d-flex">
-                <div class="card border-0 shadow-sm flex-fill">
-                    <img src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" class="card-img-top" alt="Team Member 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Emily Johnson</h5>
-                        <p class="card-text text-muted">Marketing Director</p>
-                        <p class="text-muted">Emily is responsible for our marketing strategies and outreach. With a keen eye for trends and customer behavior, she ensures that our brand remains strong and our message reaches the right audience.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            {% endfor %}
     </section>
 </main>
 

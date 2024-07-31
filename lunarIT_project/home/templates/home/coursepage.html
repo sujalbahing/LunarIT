@@ -19,11 +19,50 @@
                     <p class="price">${{ course.Price }}</p>
                     <p class="card-text">{{ course.Description }}</p>
                     <p class="rating">Rating: ★★★★☆</p>
-                    <a href="#" class="btn btn-primary">Enroll Now</a>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vacancyModal">
+                        Enroll Now
+                    </button>
                 </div>
             </div>
         </div>
         {% endfor %}
     </section>
 </main>
+
+<!-- Vacancy Modal -->
+<div class="modal fade" id="vacancyModal" tabindex="-1" aria-labelledby="vacancyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="vacancyModalLabel">Enroll in Course</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="vacancyForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="courseName" class="form-label">Course Name</label>
+                        <input type="text" class="form-control" id="courseName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

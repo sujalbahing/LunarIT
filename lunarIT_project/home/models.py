@@ -8,6 +8,15 @@ class Course(models.Model):
     
     def __str__(self):
        return self.Name
+   
+class About(models.Model):
+    Name = models.CharField(max_length=200, verbose_name="Name")
+    Image = models.ImageField(upload_to='images/', blank=True)
+    Title = models.CharField(max_length=100, verbose_name="Title")
+    Description = models.TextField(max_length=1200, verbose_name="Description")
+    
+    def __str__(self):
+       return self.Name
 
 class Product(models.Model):
     Name = models.CharField(max_length=100, verbose_name="Name")
@@ -15,6 +24,9 @@ class Product(models.Model):
     Price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Price")
     Description = models.TextField(max_length=100, verbose_name="Description")
     
+    def __str__(self):
+       return self.Name
+   
 class Contact(models.Model):
     Name = models.CharField(max_length=100, verbose_name="Name")
     Email = models.EmailField(verbose_name="Email")
