@@ -116,7 +116,17 @@
 .section-heading p {
     color: #6c757d;
 }
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
 
+.btn-primary:hover {
+    background-color: #0056b3;
+}
 
 /* footer css */
 footer {
@@ -396,21 +406,77 @@ textarea.form-control {
 
 /* team css */
 
-.card {
-    transition: transform 0.3s, box-shadow 0.3s;
+.hero-section {
+    position: relative;
+    overflow: hidden;
 }
 
-.card-body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.banner-section {
+    position: relative;
+    overflow: hidden;
+    background-color: #007bff;
+}
+
+.banner-section .counter {
+    margin-bottom: 20px;
+}
+
+.banner-section .count {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.banner-section .lead {
+    font-size: 1.25rem;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .card img {
-    height: 200px;
-    object-fit: cover;
+    border-radius: 50%;
 }
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.card .rounded-circle {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.section-heading {
+    margin-top: 50px;
+}
+
 
 /* fqa css */
 

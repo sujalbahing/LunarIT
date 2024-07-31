@@ -4,12 +4,15 @@
 
 <!-- About Us -->
 
-<main class="container my-5">
-    <section class="text-center mb-5">
-        <h1 class="display-4 section-heading pt-5">About Us</h1>
+<!-- Hero Section -->
+<section class="hero-section" style="background-image: url('https://static1.gensler.com/uploads/hero_element/20772/thumb_desktop/thumbs/221201_US-Workplace-Survey_1_1669939238_1024x576.jpg'); background-size: cover; background-position: center; height: 60vh; display: flex; align-items: center; justify-content: center; color: white;">
+    <div class="text-center">
+        <h1 class="display-3">About Us</h1>
         <p class="lead">Learn more about our team and what drives us.</p>
-    </section>
+    </div>
+</section>
 
+<main class="container my-5">
     <section class="row text-center mb-5">
         <div class="col-lg-6">
             <h2 class="h3 mb-4">Our Mission</h2>
@@ -21,25 +24,52 @@
         </div>
     </section>
 
+<!-- Banner Section -->
+<section class="banner-section text-center mt-5" style="background-image: url('https://cdn.vectorstock.com/i/500p/42/94/blue-abstract-background-modern-gradient-vector-50754294.jpg'); background-size: cover; background-position: center; color: white; padding: 60px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="counter">
+                    <h2 class="count text-white">100+</h2>
+                    <p class="lead">Completed Projects</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="counter">
+                    <h2 class="count text-white">50+</h2>
+                    <p class="lead">Regular Clients</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="counter">
+                    <h2 class="count text-white">10+</h2>
+                    <p class="lead">Years of Experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Meet Team -->
 
-    <section class="text-center mb-5">
+    <section class="text-center mb-5 mt-5">
         <h2 class="h3 mb-4">Meet Our Team</h2>
         <div class="row">
             {% for about in abouts %}
             <div class="col-md-4 mb-4 d-flex">
                 <div class="card border-0 shadow-sm flex-fill">
                     {% if about.Image %}
-                    <img src="{{ about.Image.url }}" class="card-img-top" alt="{{ about.Name }}">
+                    <img src="{{ about.Image.url }}" class="card-img-top rounded-circle mx-auto mt-3" alt="{{ about.Name }}" style="width:150px; height:150px; object-fit:cover;">
                     {% endif %}
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <h5 class="card-title">{{ about.Name }}</h5>
-                        <p class="card-text text-muted">{{ about.Title}}</p>
+                        <p class="card-text text-muted">{{ about.Title }}</p>
                         <p class="text-muted">{{ about.Description }}</p>
                     </div>
                 </div>
             </div>
             {% endfor %}
+        </div>
     </section>
 </main>
 
