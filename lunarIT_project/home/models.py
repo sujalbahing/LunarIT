@@ -36,3 +36,10 @@ class Contact(models.Model):
     
     def __str__(self):
        return self.Name
+   
+class VacancyForm(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)
+    course_name = models.CharField(max_length=100)
+    message = models.CharField(max_length=300)

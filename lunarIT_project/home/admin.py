@@ -5,6 +5,7 @@ admin.site.register(Course)
 admin.site.register(About)
 admin.site.register(Product)
 admin.site.register(Contact)
+admin.site.register(VacancyForm)
 
 class AboutAdmin(admin.ModelAdmin):
     list_display = ['id','Name','Title','Image','Description']
