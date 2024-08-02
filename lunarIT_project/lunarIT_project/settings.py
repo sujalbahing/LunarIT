@@ -129,6 +129,7 @@ USE_TZ = True
 # STATICFILES_DIRS = [
 #     BASE_DIR / 'static',
 # ]
+
 import os
 
 MEDIA_URL = '/media/'
@@ -142,13 +143,14 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# code to send mail after form is submitted 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# settings.py
+EMAIL_BACKEND = 'home.backends.email_backend.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = True  # Ensure this matches your email provider's settings
 EMAIL_HOST_USER = 'iamanmol05@gmail.com'
 EMAIL_HOST_PASSWORD = 'lzuz tcaz jqrf jrmo'
+DEFAULT_FROM_EMAIL = 'iamanmol05@gmail.com'
 
 
 # 'ienl pvgi maim mvgg'
