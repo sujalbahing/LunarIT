@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     # Local App
     'home',
+    'payments',
     
 ]
 
@@ -151,6 +152,9 @@ EMAIL_USE_TLS = True  # Ensure this matches your email provider's settings
 EMAIL_HOST_USER = 'iamanmol05@gmail.com'
 EMAIL_HOST_PASSWORD = 'lzuz tcaz jqrf jrmo'
 DEFAULT_FROM_EMAIL = 'iamanmol05@gmail.com'
+
+# Esewa settings
+ESEWA_MERCHANT_ID = 'your_merchant_id'
 
 
 # 'ienl pvgi maim mvgg'

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Initiate Payment</title>
+</head>
+<body>
+    <form action="{{ esewa_url }}" method="POST">
+        <input type="hidden" name="tAmt" value="{{ payment.amount }}">
+        <input type="hidden" name="amt" value="{{ payment.amount }}">
+        <input type="hidden" name="txAmt" value="0">
+        <input type="hidden" name="psc" value="0">
+        <input type="hidden" name="pdc" value="0">
+        <input type="hidden" name="scd" value="{{ merchant_id }}">
+        <input type="hidden" name="pid" value="{{ payment.order_id }}">
+        <input type="hidden" name="su" value="{{ return_url }}">
+        <input type="hidden" name="fu" value="{{ cancel_url }}">
+        <button type="submit">Pay with Esewa</button>
+    </form>
+</body>
+</html>

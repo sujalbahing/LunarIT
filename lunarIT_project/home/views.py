@@ -19,6 +19,9 @@ def course(request):
 def contact(request):
     return render(request, 'home/contactpage.html', {})
 
+def message(request):
+    return render(request, 'home/messagepage.html', {})
+
 def service1(request):
     return render(request, 'home/servicepage1.html', {})
 
@@ -44,7 +47,7 @@ def vacancy_view(request):
         )
 
         messages.success(request, 'Your application has been submitted successfully!')
-        return redirect('home/success.html')
+        return redirect('message/')
     
     return render(request, 'home/vacancy.html')
     

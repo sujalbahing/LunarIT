@@ -14,7 +14,7 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
     path("service1/", views.service1, name="service1"),
     path('vacancy/', views.vacancy_view, name='vacancy'),
-    path('success/', TemplateView.as_view(template_name='home/success.html'), name='success'),
+    path('message/', views.message, name='message'),
 ] 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
