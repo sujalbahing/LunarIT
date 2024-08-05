@@ -1,44 +1,60 @@
 import requests
 from django.shortcuts import render, redirect
 from django.conf import settings
+from django.urls import reverse
 from .models import Payment
 
 def initiate_payment(request):
     if request.method == 'POST':
-        amount = request.POST.get('amount')
-        order_id = 'your_unique_order_id'  # Generate a unique order ID
-        payment = Payment.objects.create(order_id=order_id, amount=amount)
+        amount = request.POST['amount']
+        payment = Payment.objects.create(user=request.user, amount=amount)
+
+        esewa_payment_url = "https://uat.esewa.com.np/epay/main"
+        success_url = request.build_absolute_uri(reverse('payment_success'))
+        failure_url = request.build_absolute_uri(reverse('payment_failure'))
+
         context = {
-            'payment': payment,
-            'merchant_id': 'your_merchant_id',
-            'return_url': 'http://127.0.0.1:8000/payments/esewa-verify/',  # Update with your verify URL
-            'cancel_url': 'http://127.0.0.1:8000/payments/esewa-cancel/',  # Update with your cancel URL
-            'esewa_url': 'https://esewa.com.np/epay/main'
+            'amt': payment.amount,
+            'pdc': 0,
+            'psc': 0,
+            'txAmt': 0,
+            'tAmt': payment.amount,
+            'pid': payment.id,
+            'scd': settings.ESEWA_MERCHANT_CODE,
+            'su': success_url,
+            'fu': failure_url,
+            'esewa_payment_url': esewa_payment_url
         }
         return render(request, 'payments/initiate_payment.html', context)
     return render(request, 'payments/initiate_payment.html')
 
-def esewa_verify(request):
-    if request.method == 'GET':
-        ref_id = request.GET.get('refId')
-        oid = request.GET.get('oid')
-        amount = request.GET.get('amt')
+def payment_success(request):
+    oid = request.GET.get('oid')
+    amt = request.GET.get('amt')
+    refId = request.GET.get('refId')
 
-        url = 'https://esewa.com.np/epay/transrec'
-        params = {
-            'amt': amount,
-            'rid': ref_id,
-            'pid': oid,
-            'scd': 'your_merchant_id'
-        }
-        response = requests.post(url, data=params)
-        status = response.text
+    payment = Payment.objects.get(id=oid, amount=amt)
 
-        if 'Success' in status:
-            payment = Payment.objects.get(order_id=oid)
-            payment.esewa_ref_id = ref_id
-            payment.save()
-            return render(request, 'payments/success.html')
-        else:
-            return render(request, 'payments/failure.html')
-    return redirect('home')
+    url = "https://uat.esewa.com.np/epay/transrec"
+    params = {
+        'amt': amt,
+        'rid': refId,
+        'pid': oid,
+        'scd': settings.ESEWA_MERCHANT_CODE,
+    }
+
+    response = requests.post(url, params=params)
+    status = response.text.split('')[1]  # Adjust this based on the actual response structure
+
+    if status == 'Success':
+        payment.status = 'COMPLETED'
+        payment.transaction_id = refId
+        payment.save()
+        return redirect('payment_success_page')
+    else:
+        payment.status = 'FAILED'
+        payment.save()
+        return redirect('payment_failure_page')
+
+def payment_failure(request):
+    return render(request, 'payments/failure.html')

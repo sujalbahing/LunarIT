@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Initiate Payment</title>
-</head>
-<body>
-    <form action="{{ esewa_url }}" method="POST">
-        <input type="hidden" name="tAmt" value="{{ payment.amount }}">
-        <input type="hidden" name="amt" value="{{ payment.amount }}">
-        <input type="hidden" name="txAmt" value="0">
-        <input type="hidden" name="psc" value="0">
-        <input type="hidden" name="pdc" value="0">
-        <input type="hidden" name="scd" value="{{ merchant_id }}">
-        <input type="hidden" name="pid" value="{{ payment.order_id }}">
-        <input type="hidden" name="su" value="{{ return_url }}">
-        <input type="hidden" name="fu" value="{{ cancel_url }}">
-        <button type="submit">Pay with Esewa</button>
-    </form>
-</body>
-</html>
+
+<form method="POST" action="{% url 'initiate' %}">
+    {% csrf_token %}
+    <input type="number" name="amount" required placeholder="Enter amount">
+    <button type="submit">Pay with Esewa</button>
+</form>
+
+<form action="{{ esewa_payment_url }}" method="POST" id="esewa-form">
+    <input value="{{ amt }}" name="amt" type="hidden">
+    <input value="{{ pdc }}" name="pdc" type="hidden">
+    <input value="{{ psc }}" name="psc" type="hidden">
+    <input value="{{ txAmt }}" name="txAmt" type="hidden">
+    <input value="{{ tAmt }}" name="tAmt" type="hidden">
+    <input value="{{ pid }}" name="pid" type="hidden">
+    <input value="{{ scd }}" name="scd" type="hidden">
+    <input value="{{ su }}" name="su" type="hidden">
+    <input value="{{ fu }}" name="fu" type="hidden">
+</form>
+
+<script type="text/javascript">
+    document.getElementById('esewa-form').submit();
+</script>
