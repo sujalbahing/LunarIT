@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <section class="text-center mb-5">
+        <h1 class="display-5 section-heading mt-5">Course Name</h1>
+    </section>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <img src="https://automationpanda.com/wp-content/uploads/2017/09/django-logo-negative.png" class="img-fluid course-image" alt="Course Name">
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Course Details</h3>
+                    <p class="card-text">Course description goes here. This text provides a detailed overview of what the course entails, its objectives, and any other relevant information that potential students might need to know.</p>
+                    <p class="price"><strong>Price:</strong> $XXX</p>
+                    <a href="{% url "addtocart" %}" class="btn btn-primary">
+                        Add to Cart
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="related-courses mt-5">
+        <h4>Related Courses</h4>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://automationpanda.com/wp-content/uploads/2017/09/django-logo-negative.png" class="card-img-top" alt="Related Course 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Related Course 1</h5>
+                        <p class="card-text">Brief description of the related course.</p>
+                        <button type="button" class="btn btn-outline-primary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://automationpanda.com/wp-content/uploads/2017/09/django-logo-negative.png" class="card-img-top" alt="Related Course 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Related Course 2</h5>
+                        <p class="card-text">Brief description of the related course.</p>
+                        <button type="button" class="btn btn-outline-primary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://automationpanda.com/wp-content/uploads/2017/09/django-logo-negative.png" class="card-img-top" alt="Related Course 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Related Course 3</h5>
+                        <p class="card-text">Brief description of the related course.</p>
+                        <button type="button" class="btn btn-outline-primary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

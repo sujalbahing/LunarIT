@@ -1,11 +1,9 @@
-from django.urls import path, include
+from django.urls import path
 from .views import*
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from .views import vacancy_view
-from django.views.generic import TemplateView
 
 urlpatterns = [
     path("",views.home, name="home"),  
@@ -15,6 +13,8 @@ urlpatterns = [
     path("service1/", views.service1, name="service1"),
     path('vacancy/', views.vacancy_view, name='vacancy'),
     path('message/', views.message, name='message'),
+    path('coursedetail/', views.course_detail, name='coursedetail'),
+    path('addtocart/', views.addtocart, name='addtocart'),
 ] 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

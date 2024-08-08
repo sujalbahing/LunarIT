@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import VacancyForm
 from .models import *
 from django.core.mail import send_mail
@@ -25,6 +25,12 @@ def message(request):
 def service1(request):
     return render(request, 'home/servicepage1.html', {})
 
+def course_detail(request):
+    return render(request, 'home/coursedetail.html')
+
+def addtocart(request):
+    return render(request, 'home/addtocart.html')
+
 def vacancy_view(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -47,6 +53,6 @@ def vacancy_view(request):
         )
 
         messages.success(request, 'Your application has been submitted successfully!')
-        return redirect('message/')
+        return redirect('/')
     
     return render(request, 'home/vacancy.html')

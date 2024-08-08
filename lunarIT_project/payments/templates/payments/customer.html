@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Form</title>
+    <link rel="stylesheet" href="../static/css/">  <!-- Link to your CSS file -->
+</head>
+<body>
+    <h1>Customer Payment Form</h1>
+    <form action="{% url 'customer' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        
+        <div class="form-group">
+            <!-- <label for="amount">Amount:</label> -->
+            <input type="hidden" id="amount" name="amount" value="10" required readonly>
+        </div>
+        
+        <div class="form-group">
+            <!-- <label for="course">Course:</label> -->
+            <input type="hidden" id="course" name="course" value="Django" required readonly>
+        </div>
+        
+        <div class="form-group">
+            <!-- <label for="payment">Payment Proof:</label> -->
+            <input type="hidden" id="payment" name="payment" value="paid" required>
+        </div>
+        
+        <div class="form-group">
+            <input type="hidden" name="return_url" value="http://127.0.0.1:8000/verify">
+        </div>
+        
+        <!-- <div class="form-group">
+            <label for="purchase_order_id">Purchase Order ID:</label>
+            <input type="hidden" id="purchase_order_id" name="purchase_order_id" required>
+        </div> -->
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
