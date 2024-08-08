@@ -19,8 +19,15 @@ import requests
 import json
 import time
 
+def generate_random_password(length=8):
+    characters = string.ascii_letters + string.digits
+    return ''.join(random.choice(characters) for _ in range(length))
 
-def customer_list(request):
+def generate_purchase_order_id(base='ID'):
+    random_number = ''.join(random.choices(string.digits, k=4))
+    return f'{base}{random_number}'
+
+def checkout(request):
     course_name = ""
     course_price = 0
     if request.method == 'POST':
@@ -92,7 +99,7 @@ def customer_list(request):
             except requests.exceptions.RequestException as e:
                 return HttpResponse(f"Error: Failed to initiate payment - {e}", status=500)
 
-    return render(request, 'payments/customer.html', {'course_name': course_name, 'course_price': course_price})
+    return render(request, 'payments/checkout.html', {'course_name': course_name, 'course_price': course_price})
 
 @csrf_exempt
 def verify_payment(request):
@@ -152,11 +159,3 @@ def verify_payment(request):
             return JsonResponse({'message': 'Payment verification failed'}, status=400)
         else:
             return HttpResponse('Payment verification failed', status=400)
-
-def generate_random_password(length=8):
-    characters = string.ascii_letters + string.digits
-    return ''.join(random.choice(characters) for _ in range(length))
-
-def generate_purchase_order_id(base='ID'):
-    random_number = ''.join(random.choices(string.digits, k=4))
-    return f'{base}{random_number}'

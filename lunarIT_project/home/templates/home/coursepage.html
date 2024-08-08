@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/course.css' %}">
+{% endblock %}
+
 {% block content %}
 <main class="container my-5">
     <section class="text-center mb-5">
-        <h1 class="display-5 section-heading mt-5">Our Courses</h1>
+        <h1 class="display-5 section-heading pt-5">Our Courses</h1>
         <p class="lead">Explore our wide range of courses designed to help you succeed.</p>
     </section>
 
@@ -28,4 +33,50 @@
         {% endfor %}
     </section>
 </main>
+
+<!-- Main Content -->
+{% comment %} <div class="container my-5 pt-5">
+    <h1 class="text-center mb-4 pt-3">Available Courses</h1>
+    <div class="row">
+        <!-- Course Card -->
+        <div class="col-md-4 mb-4">
+            <a href="course-details.html" class="text-decoration-none text-dark">
+                <div class="card">
+                    <img src="https://miro.medium.com/v2/resize:fit:1024/0*oUyjZH6_leRq64sQ.png" class="card-img-top" alt="Course Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Course Name</h5>
+                        <p class="card-text">Course Description. This is a brief overview of what the course covers and what the learners can expect.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge badge-primary">Rating: 4.5/5</span>
+                            </div>
+                            <span class="text-success">$199</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Repeat Course Card for additional courses -->
+        <div class="col-md-4 mb-4">
+            <a href="course-details.html" class="text-decoration-none text-dark">
+                <div class="card">
+                    <img src="course-image.jpg" class="card-img-top" alt="Course Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Course Name</h5>
+                        <p class="card-text">Course Description. This is a brief overview of what the course covers and what the learners can expect.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge badge-primary">Rating: 4.0/5</span>
+                            </div>
+                            <span class="text-success">$149</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Add more course cards as needed -->
+    </div>
+</div> {% endcomment %}
 {% endblock %}

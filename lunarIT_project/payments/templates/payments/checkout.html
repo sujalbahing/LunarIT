@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5 pt-2">
+    <div class="row">
+        <!-- Checkout Summary -->
+        <div class="col-lg-8">
+            <h2 class="mb-4 pt-5">Checkout Summary</h2>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Cart Items</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Product Name 1
+                            <span>$20.00</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Product Name 2
+                            <span>$30.00</span>
+                        </li>
+                        <!-- Add more items as needed -->
+                    </ul>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <h5>Total</h5>
+                        <h5>$50.00</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Checkout Form -->
+        <div class="col-lg-4">
+            <h2 class="mb-4 pt-5">Billing Details</h2>
+            <form action="{% url 'checkout' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="payment" class="form-label">Payment Method</label>
+                    <select class="form-select" id="payment">
+                        <option value="credit">Esewa</option>
+                        <option value="paypal">Khalti</option>
+                        <option value="bank">Bank Transfer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="amount">Amount:</label> -->
+                    <input type="hidden" id="amount" name="amount" value="10" required readonly>
+                </div>
+                
+                <div class="form-group">
+                    <!-- <label for="course">Course:</label> -->
+                    <input type="hidden" id="course" name="course" value="Django" required readonly>
+                </div>
+                
+                <div class="form-group">
+                    <!-- <label for="payment">Payment Proof:</label> -->
+                    <input type="hidden" id="payment" name="payment" value="paid" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="hidden" name="return_url" value="http://127.0.0.1:8000/verify">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Complete Purchase</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

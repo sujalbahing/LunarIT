@@ -22,14 +22,13 @@ def contact(request):
 def message(request):
     return render(request, 'home/messagepage.html', {})
 
-def service1(request):
-    return render(request, 'home/servicepage1.html', {})
-
 def course_detail(request):
     return render(request, 'home/coursedetail.html')
 
 def addtocart(request):
     return render(request, 'home/addtocart.html')
+
+
 
 def vacancy_view(request):
     if request.method == 'POST':

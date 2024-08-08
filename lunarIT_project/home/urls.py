@@ -10,11 +10,11 @@ urlpatterns = [
     path("about/", views.about, name="about"),
     path("course/", views.course, name="course"),
     path("contact/", views.contact, name="contact"),
-    path("service1/", views.service1, name="service1"),
     path('vacancy/', views.vacancy_view, name='vacancy'),
     path('message/', views.message, name='message'),
     path('coursedetail/', views.course_detail, name='coursedetail'),
     path('addtocart/', views.addtocart, name='addtocart'),
+    
 ] 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

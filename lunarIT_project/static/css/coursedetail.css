@@ -1,0 +1,50 @@
+/* Course Image Styling */
+.course-image {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Styling */
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Price Styling */
+.price {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+/* Related Courses Section */
+.related-courses h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.related-courses .card-img-top {
+    border-bottom: 1px solid #ddd;
+}
+
+.btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Ensure all images in the Related Courses section have the same height */
+.related-courses .card-img-top {
+    height: 200px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensures the image covers the element without distortion */
+    border-bottom: 1px solid #ddd; /* Optional: add a border for visual separation */
+}
+
