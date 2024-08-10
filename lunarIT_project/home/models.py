@@ -31,7 +31,7 @@ class Contact(models.Model):
     Name = models.CharField(max_length=100, verbose_name="Name")
     Email = models.EmailField(verbose_name="Email")
     Subject = models.CharField(max_length=100, verbose_name="Subject")
-    Phone = models.CharField(max_length=15, verbose_name="Phone")
+    Phone = models.CharField(max_length=20, verbose_name="Phone")
     Message = models.TextField(verbose_name="Message")
     
     def __str__(self):
@@ -40,7 +40,7 @@ class Contact(models.Model):
 class VacancyForm(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=20)
     course_name = models.CharField(max_length=100)
     message = models.CharField(max_length=300)
     

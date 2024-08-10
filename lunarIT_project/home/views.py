@@ -4,7 +4,10 @@ from .models import *
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def home(request):
     return render(request, 'home/homepage.html', {})
 
@@ -25,6 +28,7 @@ def message(request):
 def course_detail(request):
     return render(request, 'home/coursedetail.html')
 
+@login_required
 def addtocart(request):
     return render(request, 'home/addtocart.html')
 
@@ -52,6 +56,18 @@ def vacancy_view(request):
         )
 
         messages.success(request, 'Your application has been submitted successfully!')
-        return redirect('/')
+        return redirect("home:message")
     
-    return render(request, 'home/vacancy.html')
+    return render(request, 'home/contactpage.html')
+
+def authView(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect("home:login")
+        else:
+            messages.error(request, "Error creating account. Please check the form.")
+    else:
+        form = UserCreationForm( )
+    return render(request,'registration/signup.html', {'form': form})

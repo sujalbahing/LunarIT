@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     # Local App
     'home',
     'payments',
-    'login',
     
 ]
 
@@ -132,6 +131,9 @@ USE_TZ = True
 #     BASE_DIR / 'static',
 # ]
 
+LOGIN_REDIRECT_URL = 'home:home'  # Assuming you have a URL pattern named 'home'
+
+
 import os
 
 MEDIA_URL = '/media/'
@@ -156,5 +158,9 @@ DEFAULT_FROM_EMAIL = 'iamanmol05@gmail.com'
 
 
 
-
 # 'ienl pvgi maim mvgg'
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'
+LOGOUT_REDIRECT_URL = '/'
+

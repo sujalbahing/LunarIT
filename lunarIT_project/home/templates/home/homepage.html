@@ -28,7 +28,7 @@
     <section class="text-center mb-5 mt-5">
         <h1 class="display-5 section-heading">About Us</h1>
         <p class="lead pt-2">Since 2073 B.S. (2016 A.D.), we have been working with clients to imagine and build software that people love to use. And we think we’re different. We care about who we work for and the quality of work we deliver, and the impact that makes. And that shows in the results we produce together. Lunar IT solution is founded on a commitment to customer happiness, pride in craftsmanship, and making a difference.</p>
-        <a href="{% url 'about' %}" class="btn btn-primary mt-4 mx-auto d-block" style="width: fit-content;">Learn More</a>
+        <a href="{% url 'home:about' %}" class="btn btn-primary mt-4 mx-auto d-block" style="width: fit-content;">Learn More</a>
     </section>
 </main>
 
@@ -191,7 +191,7 @@
     <section class="text-center mb-5">
         <h2 class="h3 mb-4 sections-heading">Have More Questions?</h2>
         <p class="lead text-muted">If you have any other questions, feel free to reach out to us. We're here to help!</p>
-        <a href="{% url "contact" %}" class="btn btn-primary btn-lg">Contact Us</a>
+        <a href="{% url "home:contact" %}" class="btn btn-primary btn-lg">Contact Us</a>
     </section>
 </main>
 {% endblock %}
