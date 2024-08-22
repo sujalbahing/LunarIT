@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/password_reset_form.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-white">
+    <div class="shadow p-4 rounded bg-light">
+        <div class="bg-white p-5 rounded">
+            <h3 class="text-center text-black mb-4">Reset Your Password</h3>
+                <p class="text-center text-muted">Enter your email address, and we'll send you a link to reset your password.</p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        {{ form.email.label_tag }} 
+                        {{ form.email }}
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-block w-100">Send Reset Link</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

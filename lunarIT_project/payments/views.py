@@ -17,7 +17,13 @@ import string
 import uuid
 import requests
 import json
+import hashlib
 import time
+
+# esewa
+import hmac , hashlib
+import base64, requests
+# from payment_credentials.model import WebPaymentCredentials
 
 
 def generate_random_password(length=8):
@@ -102,6 +108,8 @@ def checkout(request):
 
     return render(request, 'payments/checkout.html', {'course_name': course_name, 'course_price': course_price})
 
+
+
 @csrf_exempt
 def verify_payment(request):
     if request.method == 'POST':
@@ -150,13 +158,15 @@ def verify_payment(request):
 
         if request.method == 'POST':
             # return JsonResponse({'message': 'Payment verified and customer created successfully'}, status=200)
-            return redirect('course')
+            return redirect('/')
 
         else:
             # return HttpResponse('Payment verified and customer created successfully', status=200)
-            return redirect('course')
+            return redirect('home:course')
     else:
         if request.method == 'POST':
             return JsonResponse({'message': 'Payment verification failed'}, status=400)
         else:
             return HttpResponse('Payment verification failed', status=400)
+        
+        

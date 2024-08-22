@@ -15,8 +15,16 @@
                     <label for="id_password">Password</label>
                     <input type="password" class="form-control mb-3" id="id_password" name="password" required>
                 </div>
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 <button type="submit" class="btn btn-primary">Login</button>
                 <a class="signup-link text-dark text-center d-block mt-3" href="{% url 'home:authView' %}">Sign Up</a>
+                <a class="signup-link text-blue text-center d-block mt-3" href="{% url 'home:password_reset' %}">Forget Password?</a>
             </form>
         </div>
     </div>

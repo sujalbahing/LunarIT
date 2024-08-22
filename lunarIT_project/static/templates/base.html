@@ -57,7 +57,7 @@
                     {% if user.is_authenticated %}
                         <form action="{% url 'home:logout' %}" method="post" style="display: inline;">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-secondary ms-lg-3">Logout</button>
+                            <button type="submit" class="btn btn-danger ms-lg-3">Logout</button>
                         </form>
                     {% else %}
                         <a href="{% url 'home:login' %}" class="btn btn-secondary ms-lg-3">Login</a>

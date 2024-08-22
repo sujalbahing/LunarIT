@@ -6,6 +6,8 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views as auth_views
+from .forms import CustomPasswordResetForm
 
 @login_required
 def home(request):
@@ -31,7 +33,6 @@ def course_detail(request):
 @login_required
 def addtocart(request):
     return render(request, 'home/addtocart.html')
-
 
 
 def vacancy_view(request):
@@ -71,3 +72,12 @@ def authView(request):
     else:
         form = UserCreationForm( )
     return render(request,'registration/signup.html', {'form': form})
+
+
+class CustomPasswordResetView(auth_views.PasswordResetView):
+    form_class = CustomPasswordResetForm
+    template_name = 'registration/pass.html'
+    
+class CustomPasswordResetDoneView(auth_views.PasswordResetDoneView):
+    template_name = 'registration/passd.html'
+    

@@ -152,13 +152,13 @@ EMAIL_BACKEND = 'home.backends.email_backend.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True  # Ensure this matches your email provider's settings
-EMAIL_HOST_USER = 'iamanmol05@gmail.com'
-EMAIL_HOST_PASSWORD = 'lzuz tcaz jqrf jrmo'
-DEFAULT_FROM_EMAIL = 'iamanmol05@gmail.com'
+EMAIL_HOST_USER = 'Sujal.rai147@gmail.com'
+EMAIL_HOST_PASSWORD = 'ienl pvgi maim mvgg'
+DEFAULT_FROM_EMAIL = 'Sujal.rai147@gmail.com'
 
 
 
-# 'ienl pvgi maim mvgg'
+
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/accounts/login/'
